@@ -1,0 +1,541 @@
+.todo-app-shell {
+  min-height: 100vh;
+  padding: 8px;
+  color: #18212f;
+  background:
+    radial-gradient(circle at top left, rgba(255, 196, 145, 0.42), transparent 22%),
+    radial-gradient(circle at top right, rgba(158, 179, 255, 0.28), transparent 26%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+}
+
+.hero-panel {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto 6px;
+}
+
+.hero-copy,
+.content-panel {
+  border: 1px solid rgba(38, 50, 72, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 40px rgba(25, 39, 61, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.hero-copy {
+  padding: 8px 10px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hero-copy::after {
+  content: '';
+  position: absolute;
+  inset: auto -100px -130px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 176, 92, 0.32), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge,
+.hero-panel-label,
+.dialog-label,
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255, 171, 79, 0.12);
+  color: #b86a10;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  margin: 0;
+}
+
+.hero-badge {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 0.72rem;
+}
+
+.content-panel {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.filters-card {
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(38, 50, 72, 0.08);
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, minmax(0, 1fr)) auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: rgba(24, 33, 47, 0.76);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(38, 50, 72, 0.12);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #162235;
+  padding: 9px 10px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(255, 164, 72, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 164, 72, 0.12);
+}
+
+.field small {
+  color: rgba(24, 33, 47, 0.56);
+  font-size: 0.7rem;
+}
+
+.filters-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.table-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0 10px;
+}
+
+.table-summary div {
+  padding: 10px 12px;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.banner-error {
+  background: rgba(255, 238, 239, 0.96);
+  border: 1px solid rgba(232, 95, 118, 0.18);
+}
+
+.banner p {
+  margin: 4px 0 0;
+  color: rgba(24, 33, 47, 0.72);
+}
+
+.todo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.todo-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 253, 0.98));
+  border: 1px solid rgba(38, 50, 72, 0.08);
+}
+
+.todo-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-card-body h3 {
+  margin: 0 0 4px;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 0.98rem;
+  color: #162235;
+}
+
+.todo-card-body p {
+  margin: 0;
+  color: rgba(24, 33, 47, 0.72);
+  line-height: 1.35;
+  font-size: 0.82rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.status-pending {
+  background: rgba(255, 184, 93, 0.18);
+  color: #ffc57d;
+}
+
+.status-completed {
+  background: rgba(71, 194, 142, 0.18);
+  color: #72e0af;
+}
+
+.toggle-button,
+.primary-button,
+.secondary-button,
+.danger-button,
+.page-button,
+.icon-button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toggle-button,
+.primary-button,
+.secondary-button,
+.danger-button,
+.page-button {
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.toggle-button:hover,
+.primary-button:hover,
+.secondary-button:hover,
+.danger-button:hover,
+.page-button:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.toggle-button {
+  background: rgba(255, 255, 255, 0.92);
+  color: #162235;
+  border: 1px solid rgba(38, 50, 72, 0.08);
+}
+
+.toggle-button.is-completed {
+  background: rgba(71, 194, 142, 0.15);
+  color: #91f1c7;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #ffb058, #ff7b5d);
+  color: #171725;
+  font-weight: 800;
+  box-shadow: 0 16px 30px rgba(255, 127, 76, 0.25);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.92);
+  color: #162235;
+  border: 1px solid rgba(38, 50, 72, 0.1);
+}
+
+.danger-button {
+  background: rgba(255, 236, 239, 0.95);
+  color: #c53b58;
+  border: 1px solid rgba(197, 59, 88, 0.16);
+}
+
+.todo-card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.todo-card-actions .secondary-button,
+.todo-card-actions .danger-button {
+  flex: 1;
+}
+
+.todo-card-skeleton {
+  min-height: 180px;
+}
+
+.skeleton {
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-title {
+  height: 28px;
+  width: 58%;
+}
+
+.skeleton-line {
+  height: 14px;
+}
+
+.skeleton-line.short {
+  width: 72%;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 22px 16px;
+  text-align: center;
+  border-radius: 14px;
+  border: 1px dashed rgba(38, 50, 72, 0.14);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.empty-state-visual {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 176, 88, 0.18), rgba(116, 130, 255, 0.18));
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.empty-state h3,
+.confirm-dialog h2,
+.modal-card h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+}
+
+.empty-state p,
+.confirm-dialog p {
+  margin: 0;
+  color: rgba(24, 33, 47, 0.72);
+  line-height: 1.7;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.pagination-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.page-button {
+  min-width: 40px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #162235;
+  border: 1px solid rgba(38, 50, 72, 0.1);
+}
+
+.page-button.is-active {
+  background: linear-gradient(135deg, #ffb058, #ff7b5d);
+  color: #1a1723;
+  font-weight: 800;
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  color: rgba(247, 245, 239, 0.55);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(7, 10, 18, 0.74);
+  backdrop-filter: blur(12px);
+}
+
+.modal-card,
+.confirm-dialog {
+  width: min(720px, 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(38, 50, 72, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 253, 0.98));
+  box-shadow: 0 24px 60px rgba(25, 39, 61, 0.16);
+}
+
+.modal-card {
+  padding: 14px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #162235;
+  font-size: 1.2rem;
+}
+
+.todo-form {
+  display: grid;
+  gap: 12px;
+}
+
+.todo-form .field {
+  gap: 6px;
+}
+
+.todo-form .field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.inline-error {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 236, 239, 0.95);
+  border: 1px solid rgba(197, 59, 88, 0.16);
+  color: #c53b58;
+}
+
+.modal-actions,
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.confirm-dialog {
+  padding: 18px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 1180px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filters-actions {
+    justify-content: stretch;
+  }
+
+  .filters-actions .secondary-button,
+  .todo-card-actions .secondary-button,
+  .todo-card-actions .danger-button,
+  .modal-actions .primary-button,
+  .modal-actions .secondary-button,
+  .dialog-actions .secondary-button,
+  .dialog-actions .danger-button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .todo-app-shell {
+    padding: 8px;
+  }
+
+  .hero-copy,
+  .content-panel,
+  .modal-card,
+  .confirm-dialog {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .hero-copy {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-card-top,
+  .todo-card-actions,
+  .modal-actions,
+  .dialog-actions,
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pagination {
+    flex-direction: column;
+  }
+
+  .hero-copy h1 {
+    max-width: none;
+    font-size: clamp(2.4rem, 13vw, 4rem);
+  }
+}

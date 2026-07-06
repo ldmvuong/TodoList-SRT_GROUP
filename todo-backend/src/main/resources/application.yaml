@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: todo-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo_db
+    username: root
+    password: root123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
+
+app:
+  cors:
+    allowed-origins: http://localhost:5173
